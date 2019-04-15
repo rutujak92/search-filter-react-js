@@ -42,18 +42,20 @@ class FilterableProductPage extends Component {
    selectedNodes.forEach(node => {
      selectedFilters.push(node.value);
    })
-   const products = this.state.products;
-    if(selectedFilters.length>0){
-      
-    }
-   const newRelevantProducts = [];
-   products.forEach(product =>{
+  const products = this.state.products;
+  let newRelevantProducts = [];
+  if(selectedFilters.length>0){
+    products.forEach(product =>{
      if(selectedFilters.includes(product.category)){
         newRelevantProducts.push(product);
      }
-   });
+    });
+  }
+
+   
+  
    this.setState({
-     relevantProducts:newRelevantProducts,
+     relevantProducts: selectedFilters.length>0? newRelevantProducts : products,
    });
   }
    render() {
