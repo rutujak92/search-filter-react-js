@@ -7,3 +7,4 @@ setup::
 1. clone repo
 2. npm install
 3. npm start
+4. npm test for testing
