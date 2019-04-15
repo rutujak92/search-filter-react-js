@@ -4,19 +4,31 @@ import '../assets/App.css';
 
 class ProductResults extends Component {
    render() {
-      const rows = []
-      this.props.products.forEach(product=>{
-        rows.push(
-          <Product productInfo={product}  key= {product.id} />
+      const {products} = this.props;
+      if(products.length>0){
+        const rows = []
+        products.forEach(product=>{
+          rows.push(
+            <Product productInfo={product}  key= {product.id} />
+          );
+         })
+        return (
+         <div className="col-sm-70 main">
+          <div className="container">
+            {rows}
+          </div>
+          </div>
         );
-       })
-      return (
-       <div className="col-sm-70 main">
-   			<div className="container">
-   				{rows}
-   			</div>
-        </div>
-      );
+      }
+      else{
+        return(
+           <div className="col-sm-70 main">
+            <div className="container">
+              No products to show
+            </div>
+          </div>
+        );
+      }
    }    
 }
 

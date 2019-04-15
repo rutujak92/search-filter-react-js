@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../assets/App.css';
 
 
-class FilterContainer extends React.Component {
+class FilterContainer extends Component {
   render() {
       const rows = []
       this.props.categories.forEach(category=>{
@@ -17,7 +17,7 @@ class FilterContainer extends React.Component {
       return (
        <div className="col-sm-30 sidebar">
          <h6>Filter By</h6>
-         <ul role="filter">
+         <ul>
            {rows}
          </ul>
        </div>

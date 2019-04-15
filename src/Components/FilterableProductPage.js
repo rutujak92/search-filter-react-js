@@ -15,26 +15,18 @@ class FilterableProductPage extends Component {
   }
   //filter according to text
   handleSearch(e){
-    const keyPressed = e.keyCode;
     const newFilterText = e.target.value.toLowerCase();
-    console.log(newFilterText,'newFilterText');
     let newRelevantProducts= [];
-    let showAllProducts;
     const products = this.state.products;
-    if(newFilterText==''){
+    if(newFilterText===''){
       newRelevantProducts = products;
-      showAllProducts = true;
     }
     else{
        products.forEach(product=>{
-   
         if(product.name.toLowerCase().indexOf(newFilterText)>-1){
-
-            newRelevantProducts.push(product)  
+          newRelevantProducts.push(product)  
         } 
-
       });
-      showAllProducts = false;
     }
     
     this.setState({
@@ -71,7 +63,7 @@ class FilterableProductPage extends Component {
         <SearchBar onChange={this.handleSearch.bind(this)}/>
         <div className="container">
           <FilterContainer categories={this.props.categories} onChange={this.handleFilter.bind(this)}/>
-          <ProductResults products={this.state.relevantProducts} showProducts={this.state.showAllProducts}/>
+          <ProductResults products={this.state.relevantProducts}/>
         </div>
         
        </div>
